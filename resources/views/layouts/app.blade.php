@@ -11,7 +11,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    {{-- <link href="/css/app.css" rel="stylesheet"> --}}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    
 
     <!-- Scripts -->
     <script>
@@ -43,7 +45,10 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        @if(Auth::check())
+                            <li><a href="{{ route('profile', ['slug' => Auth::user()->slug ]) }}">My profile</a></li>
+                            <unread></unread>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -83,5 +88,13 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <script src="/js/notify.js"></script>
+    <script>        
+        @if(Session::has('success'))
+            $.notify( "{{ Session::get('success') }}", "success");
+        @endif
+    </script>
 </body>
 </html>

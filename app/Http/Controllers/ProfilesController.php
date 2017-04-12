@@ -47,7 +47,7 @@ class ProfilesController extends Controller
             ]);
 
         }
-        
+        Session::flash('success', 'Profile updated.');
         return redirect()->route('profile', ['slug' => Auth::user()->slug]);
 
     }
