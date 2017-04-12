@@ -22,8 +22,6 @@
 </head>
 <body>
     <div id="app">
-        <init></init>
-        
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -45,10 +43,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        @if(Auth::check())
-                            <li><a href="{{ route('profile', ['slug' => Auth::user()->slug ]) }}">My profile</a></li>
-                            <unread></unread>
-                        @endif
+                        &nbsp;
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -82,30 +77,11 @@
                 </div>
             </div>
         </nav>
-        @if(Auth::check())
-            <search></search>
-        @endif
+
         @yield('content')
-        @if(Auth::check())
-            <notification :id="{{ Auth::id() }}"></notification>
-        @endif
-        <audio id="noty_audio">
-            <source src="{{ asset('audio/notify.mp3') }}">
-            <source src="{{ asset('audio/notify.ogg') }}">
-            <source src="{{ asset('audio/notify.wav') }}">
-        </audio>
     </div>
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
-    <script>        
-        @if(Session::has('success'))
-            noty({
-                type: 'success',
-                layout: 'bottomLeft',
-                text: '{{ Session::get('success') }}'
-            });
-        @endif
-    </script>
 </body>
 </html>
