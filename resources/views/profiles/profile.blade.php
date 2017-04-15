@@ -27,14 +27,16 @@
                         </div>
                   </div>
                   
-                  @if(Auth::id() !== $user->id)
+                  {{-- @if(Auth::id() !== $user->id) --}}
+                  <div id="app">
                         <div class="panel panel-default">
                               <div class="panel-body">
-                                    <friend :profile_user_id="{{ $user->id }}"></friend>
+                                    <friend profile_user_id="{{ $user->id }}"></friend>
                               </div>
                         </div>
-                  @endif
-
+                  </div>
+                {{--   @endif --}}
+                  
                   <div class="panel panel-default">
                         <div class="panel-heading">
                               <p class="text-center">

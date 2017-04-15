@@ -66,11 +66,11 @@ class RegisterController extends Controller
     {
         if($data['gender'])
         {
-            $avatar = 'public/defaults/avatars/male.jpg';
+            $avatar = 'male.jpg';
         }
         else
         {
-            $avatar = 'public/defaults/avatars/female.jpg';
+            $avatar = 'female.jpg';
         }
         $user = User::create([
             'name' => $data['name'],
