@@ -15,9 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/add', function () {
-    return \App\User::find(5)->add_friend(1);
-});
 
 Route::get('/accept', function () {
     return \App\User::find(2)->accept_friend(4);
@@ -45,11 +42,19 @@ Route::get('/ch', function () {
     return \App\User::find(1)->has_pending_friend_request_sent_to(3);
 });
 
-// Route::get('userfound/{id}', function ($id) {
-//     return \App\User::find($id);
-// });
 
 Route::get('/userfound/{id}', 'FriendshipsController@check');
+
+Route::get('/add_friend/{id}', [
+        'uses' => 'FriendshipsController@add_friend',
+        'as'=>'add_friend'
+    ]);
+
+Route::get('/accept_friend/{id}', [
+        'uses' => 'FriendshipsController@accept_friend',
+        'as'=>'accept_friend'
+    ]);
+
 
 
 Auth::routes();

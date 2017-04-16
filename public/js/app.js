@@ -12099,23 +12099,63 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    // this axios.get('/check_relationship_status/' + this.profile_user_id)
-    //     .then(function (response) {
-    //         console.log(response);
-    //     })
+    mounted: function mounted() {
+        var self = this;
+        axios.get('/userfound/' + self.profile_user_id).then(function (response) {
+            console.log(response);
+            self.status = response.data.status;
+            self.loading = false;
+        }).catch(function (error) {
+            console.log(error);
+        });
+    },
 
-    // Make a request for a user with a given ID 
-    axios.get('/userfound/' + this.profile_user_id).then(function (response) {
-      console.log(response);
-    }).catch(function (error) {
-      console.log(error);
-    });
-  },
+    props: ['profile_user_id'],
+    data: function data() {
+        return {
+            status: '',
+            loading: true
+        };
+    },
 
-  props: ['profile_user_id']
+    methods: {
+        add_friend: function add_friend() {
+            // you can do same here as well
+            var self = this;
+            self.loading = true;
+            axios.get('/add_friend/' + self.profile_user_id).then(function (response) {
+                console.log(response);
+                if (response.data == 1) {
+                    self.status = 'waiting';
+                    self.loading = false;
+                }
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        accept_friend: function accept_friend() {
+            var self = this;
+            self.loading = true;
+            axios.get('/accept_friend/' + self.profile_user_id).then(function (response) {
+                console.log(response);
+                if (response.data == 1) {
+                    self.status = 'friends';
+                    self.loading = false;
+                }
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
+    }
 });
 
 /***/ }),
@@ -31739,14 +31779,28 @@ module.exports = function normalizeComponent (
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "container"
-  }, [_c('div', {
     staticClass: "row"
-  }, [_vm._v("\n        \n        component ready\n\n    ")])])
-}]}
+  }, [(_vm.loading) ? _c('p', {
+    staticClass: "text-center"
+  }, [_vm._v("\n        Loading...\n    ")]) : _vm._e(), _vm._v(" "), (!_vm.loading) ? _c('p', {
+    staticClass: "text-center"
+  }, [(_vm.status == 0) ? _c('button', {
+    staticClass: "btn btn-success",
+    on: {
+      "click": _vm.add_friend
+    }
+  }, [_vm._v("Add Friend")]) : _vm._e(), _vm._v(" "), (_vm.status == 'pending') ? _c('button', {
+    staticClass: "btn btn-success",
+    on: {
+      "click": _vm.accept_friend
+    }
+  }, [_vm._v("Accept Friend")]) : _vm._e(), _vm._v(" "), (_vm.status == 'waiting') ? _c('span', {
+    staticClass: "text-success"
+  }, [_vm._v("Waiting for response")]) : _vm._e(), _vm._v(" "), (_vm.status == 'friends') ? _c('span', {
+    staticClass: "text-success"
+  }, [_vm._v("Friends")]) : _vm._e()]) : _vm._e()])
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
