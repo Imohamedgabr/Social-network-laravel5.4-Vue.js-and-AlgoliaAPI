@@ -46,6 +46,7 @@ export default {
                 console.log(response);
                 if (response.data == 1) {
                     self.status = 'waiting'
+                    $.notify("your request has been sent", "success");
                     self.loading = false
                 }
             })
@@ -61,6 +62,7 @@ export default {
                 console.log(response);
                 if (response.data == 1) {
                     self.status = 'friends'
+                    $.notify("you are now friends", "success");
                     self.loading = false
                 }
             })

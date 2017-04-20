@@ -31,7 +31,7 @@
                  
                         <div class="panel panel-default">
                               <div class="panel-body">
-                                    <friend profile_user_id="{{ $user->id }}"></friend>
+                                    <friend :profile_user_id="{{ $user->id }}"></friend>
                               </div>
                         </div>
                  
