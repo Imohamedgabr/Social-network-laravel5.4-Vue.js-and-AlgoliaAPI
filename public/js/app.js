@@ -12220,7 +12220,7 @@ module.exports = function spread(callback) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* WEBPACK VAR INJECTION */(function($) {Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
@@ -12238,12 +12238,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
    methods: {
       listen: function listen() {
          Echo.private('App.User.' + this.id).notification(function (notification) {
-            alert('new notification');
-            console.log(notification);
+            $.notify(notification.name + notification.message, "success");
+            document.getElementById("noty_audio").play();
          });
       }
    }
 });
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
 /* 33 */

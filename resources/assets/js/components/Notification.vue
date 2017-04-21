@@ -16,9 +16,10 @@
     		listen(){
     			Echo.private('App.User.' + this.id)
     				.notification( (notification) => {
-    					alert('new notification')
-    					console.log(notification)
+    					$.notify(notification.name + notification.message , "success");
+                        document.getElementById("noty_audio").play()
     				})
+                    
     		}
     	}
 	}
