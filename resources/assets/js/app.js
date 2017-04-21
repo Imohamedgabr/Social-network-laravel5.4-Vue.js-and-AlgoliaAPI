@@ -14,9 +14,18 @@ require('./bootstrap');
  */
 
 Vue.component('friend', require('./components/Friend.vue'));
+Vue.component('unread', require('./components/UnreadNots.vue'));
 Vue.component('notification', require('./components/Notification.vue'));
 
+import { store } from './store'
+
+// we have to register the store in our app here
+// so every vue component has the store available to them
 
 const app = new Vue({
-    el: '#app'
+
+    el: '#app',
+
+    store
+
 });
