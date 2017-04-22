@@ -21578,8 +21578,12 @@ module.exports = function spread(callback) {
    props: ['id'],
    methods: {
       listen: function listen() {
+         var _this = this;
+
          Echo.private('App.User.' + this.id).notification(function (notification) {
             $.notify(notification.name + notification.message, "success");
+            // we are using the store mutation
+            _this.$store.commit('add_not', notification);
             document.getElementById("noty_audio").play();
          });
       }
