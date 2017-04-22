@@ -46,18 +46,20 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a class="navbar-brand" href="{{ url('/home') }}">
+                        Home
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+
                         @if(Auth::check())
                             <li><a href="{{ route('profile', ['slug' => Auth::user()->slug ]) }}">My profile</a></li>
                             <unread></unread>
                         @endif
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -102,7 +104,7 @@
             <source src="{{ asset('audio/notify.mp3') }}">
             {{-- <source src="{{ asset('audio/notify.wav') }}"> --}}
         </audio>
-
+        
     </div>
 
     <!-- Scripts -->

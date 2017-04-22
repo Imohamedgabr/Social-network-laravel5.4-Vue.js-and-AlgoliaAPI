@@ -21955,6 +21955,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
       mounted: function mounted() {},
@@ -24685,7 +24692,7 @@ exports.push([module.i, "\n.avatar-feed{\n    border-radius: 50%;\n}\n", ""]);
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(11)();
-exports.push([module.i, "\n.avatar-like{\n      border-radius: 50%;\n}\n", ""]);
+exports.push([module.i, "\n.avatar-like{\n            border-radius: 50%;\n}\nul{\n      \n      list-style-type: none;\n    margin: 0;\n    padding: 0;\n}\nli {\n    float: left;\n     display: block;\n}\n", ""]);
 
 /***/ }),
 /* 46 */
@@ -47104,10 +47111,10 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('hr'), _vm._v(" "), _vm._l((_vm.post.likes), function(like) {
-    return _c('p', {
-      staticClass: "text-center"
-    }, [_c('img', {
+  return _c('div', [_c('div', {
+    staticClass: "row"
+  }, [_c('hr'), _vm._v(" "), _vm._l((_vm.post.likes), function(like) {
+    return _c('ul', [_c('li', [_c('img', {
       staticClass: "avatar-like",
       attrs: {
         "src": 'uploads/' + like.user.avatar,
@@ -47115,8 +47122,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "width": "40px",
         "height": "40px"
       }
-    })])
-  }), _vm._v(" "), _c('hr'), _vm._v(" "), (!_vm.auth_user_likes_post) ? _c('button', {
+    })])])
+  })], 2), _vm._v(" "), _c('div', {
+    staticClass: "row"
+  }, [(!_vm.auth_user_likes_post) ? _c('button', {
     staticClass: "btn btn-primary btn-xs",
     on: {
       "click": function($event) {
@@ -47130,7 +47139,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.unlike()
       }
     }
-  }, [_vm._v("\n            Unlike this post\n      ")])], 2)
+  }, [_vm._v("\n            Unlike this post\n      ")])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

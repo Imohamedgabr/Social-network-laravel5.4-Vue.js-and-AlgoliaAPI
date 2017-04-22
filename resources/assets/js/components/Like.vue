@@ -1,16 +1,23 @@
 <template>
       <div>
+          <div class="row">
             <hr>
-            <p class="text-center" v-for="like in post.likes">
+            <ul v-for="like in post.likes">
+            
+                  <li> 
                   <img :src=" 'uploads/' + like.user.avatar" alt="" width="40px" height="40px" class="avatar-like">
-            </p>
-            <hr>
+                  </li>
+            
+            </ul>
+          </div>
+          <div class="row">
             <button class="btn btn-primary btn-xs" v-if="!auth_user_likes_post" @click="like()">
                   Like this post
             </button>
             <button class="btn btn-danger btn-xs" v-else @click="unlike()">
                   Unlike this post
             </button>
+          </div>
       </div>
 </template>
 
@@ -85,4 +92,18 @@
       .avatar-like{
             border-radius: 50%;
       }
+
+      ul{
+      
+      list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+    
+      }
+
+      li {
+    float: left;
+     display: block;
+}
 </style>
