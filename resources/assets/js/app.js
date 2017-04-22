@@ -13,6 +13,7 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.component('post', require('./components/Post.vue'));
 Vue.component('friend', require('./components/Friend.vue'));
 Vue.component('unread', require('./components/UnreadNots.vue'));
 Vue.component('notification', require('./components/Notification.vue'));
