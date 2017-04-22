@@ -12,7 +12,7 @@ require('./bootstrap');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
+Vue.component('feed', require('./components/Feed.vue'));
 Vue.component('post', require('./components/Post.vue'));
 Vue.component('friend', require('./components/Friend.vue'));
 Vue.component('unread', require('./components/UnreadNots.vue'));
