@@ -16,7 +16,7 @@
                                 {{ post.content }}
                             </p>
                             
-                           <!--  <like :id="post.id"></like> -->
+                            <like :id="post.id"></like>
                         </div>
                     </div>
                 </div>
@@ -26,15 +26,15 @@
 
 <script>
 
-    // import Like from './Like.vue'
+    import Like from './Like.vue'
 
     export default {
         mounted() {
             this.get_feed()
         },
-        // components: {
-        //     Like
-        // },
+        components: {
+            Like
+        },
         methods: {
             get_feed() {
                 axios.get('/feed') 

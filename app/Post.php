@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     // this is eager loading, with each post we load the user object
-    public $with = ['user'];
+    // we add the function name here which we define down there
+    public $with = ['user','likes'];
 
     protected $fillable = ['content','user_id'];
 
@@ -16,8 +17,8 @@ class Post extends Model
         return $this->belongsTo('App\User');
     }
     
-    // public function likes()
-    // {
-    //     return $this->hasMany('App\Like');
-    // }
+    public function likes()
+    {
+        return $this->hasMany('App\Like');
+    }
 }
