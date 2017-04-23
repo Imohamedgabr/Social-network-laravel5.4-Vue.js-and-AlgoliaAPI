@@ -13,10 +13,43 @@
                         </div>
                   </div>
             </div>
+            <div class="row">
+              <div class="panel panel-default" v-for="post in posts">
+                        <div class="panel-heading">
+                            <img :src=" 'uploads/' + post.avatar" alt="" width="40px" height="40px" class="avatar-feed">
+                            {{ post.name }}
+                            <span class="pull-right">
+                                {{ post.created_at }}
+                            </span>
+                        </div>
+
+                        <div class="panel-body">
+                            <p class="text-center">
+                                {{ post.content }}
+                            </p>
+                            
+                           
+                            <div class="row">
+                              <hr>
+            
+                            </div>
+                            <div class="row">
+                              <hr>
+                                <button class="btn btn-primary btn-xs">
+                                  Like this post
+                                </button>
+            
+                            </div>
+          
+                        </div>
+                    </div>
+            </div>
       </div>
 </template>
 
 <script>
+
+
       export default {
             mounted() {
 
@@ -24,7 +57,8 @@
             data() {
                   return {
                         content: '',
-                        not_working: true
+                        not_working: true,
+                        posts:[]
                   }
             },
             methods: {
@@ -37,7 +71,9 @@
                                   this.content = ''
                                   // add notify 
                                   $.notify("your post has been added", "success");
-                                  console.log(resp)
+                                  console.log(resp);
+                                  var obj = {name: resp.data.user.name, avatar: resp.data.user.avatar, created_at: resp.data.post.created_at ,content: resp.data.post.content, id: resp.data.post.id };
+                                  this.posts.push(obj);
                             })
                             .catch(function (error) {
                                  console.log(error);
@@ -54,4 +90,5 @@
             }
 
       }
+      
 </script>

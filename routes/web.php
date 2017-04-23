@@ -122,4 +122,8 @@ Route::group(['middleware' => 'auth'], function(){
         'uses' => 'LikesController@unlike'
     ]);
 
+    Route::get('/members', [
+        'uses' => 'UsersController@getUser'
+    ]);
+
 });

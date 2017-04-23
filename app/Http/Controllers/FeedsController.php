@@ -25,6 +25,7 @@ class FeedsController extends Controller
             array_push($feed, $post);
         endforeach;
 
+        // it's php function , call back recieves what we are tryin 2 compare
         usort($feed, function($p1, $p2){
             return $p1->id < $p2->id;
         });

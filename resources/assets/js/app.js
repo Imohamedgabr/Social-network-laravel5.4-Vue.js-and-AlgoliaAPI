@@ -13,6 +13,7 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.component('search', require('./components/Search.vue'));
 Vue.component('init', require('./components/Init.vue'));
 Vue.component('feed', require('./components/Feed.vue'));
 Vue.component('post', require('./components/Post.vue'));

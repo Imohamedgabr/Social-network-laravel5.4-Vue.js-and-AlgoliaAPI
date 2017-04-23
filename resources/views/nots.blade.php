@@ -12,7 +12,11 @@
                               @foreach($nots as $not)
                                     <li class="list-group-item">
                                            {{ $not->data['name'] }} &nbsp; {{ $not->data['message'] }} <span class="pull-right">{{ $not->created_at->diffForHumans() }}</span>
+
+                                           
                                     </li>
+                                    
+                                    <br> <br> <br>
                               @endforeach
                         </ul>
                 </div>

@@ -11,6 +11,7 @@
             </ul>
           </div>
           <div class="row">
+          <hr>
             <button class="btn btn-primary btn-xs" v-if="!auth_user_likes_post" @click="like()">
                   Like this post
             </button>

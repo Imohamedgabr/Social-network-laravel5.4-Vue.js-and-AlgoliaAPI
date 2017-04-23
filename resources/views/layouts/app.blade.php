@@ -32,6 +32,7 @@
     <div id="app">
 
         <init></init>
+
         
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -60,6 +61,9 @@
                             <unread></unread>
                         @endif
 
+                        @if(Auth::check())
+                        <li><a href="/members">Members</a></li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -94,6 +98,10 @@
                 </div>
             </div>
         </nav>
+        
+        {{-- @if(Auth::check())
+        <search></search>
+        @endif --}}
 
         @yield('content')
 
