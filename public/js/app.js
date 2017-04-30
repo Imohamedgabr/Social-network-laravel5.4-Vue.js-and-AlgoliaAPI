@@ -53216,7 +53216,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._v("\n                              Create a post\n                        ")]), _vm._v(" "), _c('br'), _vm._v(" "), _c('a', {
     attrs: {
-      "href": "#"
+      "href": "/manage_posts"
     }
   }, [_c('button', {
     staticClass: "btn btn-success pull-left",

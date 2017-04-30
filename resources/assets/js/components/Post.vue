@@ -11,7 +11,7 @@
                                     Create a post
                               </button>
                               <br>
-                              <a href="#"><button class="btn btn-success pull-left" @click="">
+                              <a href="/manage_posts"><button class="btn btn-success pull-left" @click="">
                                     Manage Posts
                               </button></a>
                             </div>

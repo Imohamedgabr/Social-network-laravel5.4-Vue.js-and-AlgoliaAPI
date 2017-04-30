@@ -103,6 +103,10 @@ Route::group(['middleware' => 'auth'], function(){
     return view('friends')->with('friends',$friends);
     });
 
+    Route::get('/manage_posts', [
+        'uses' => 'PostsController@manageposts'
+    ]);
+
 });
 
 
