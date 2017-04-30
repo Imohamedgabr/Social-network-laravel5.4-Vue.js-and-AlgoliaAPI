@@ -15,34 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/accept', function () {
-    return \App\User::find(2)->accept_friend(4);
-});
-
-Route::get('/friends', function () {
-    return \App\User::find(1)->friends();
-});
-
-
-Route::get('/pending_friends', function () {
-    return \App\User::find(4)->pending_friend_requests();
-});
-
-
-Route::get('/ids', function () {
-    return \App\User::find(1)->friends_ids();
-});
-
-Route::get('/is', function () {
-    return \App\User::find(1)->is_friends_with(2);
-});
-
-Route::get('/ch', function () {
-    return \App\User::find(1)->has_pending_friend_request_sent_to(3);
-});
-
-
 Route::get('/userfound/{id}', 'FriendshipsController@check');
 
 Route::get('/add_friend/{id}', [
@@ -126,4 +98,37 @@ Route::group(['middleware' => 'auth'], function(){
         'uses' => 'UsersController@getUser'
     ]);
 
+    Route::get('/friends', function () {
+    $friends = \App\User::find(Auth::id())->friends();
+    return view('friends')->with('friends',$friends);
+    });
+
 });
+
+
+
+// testing routes
+
+Route::get('/accept', function () {
+    return \App\User::find(2)->accept_friend(4);
+});
+
+
+Route::get('/pending_friends', function () {
+    return \App\User::find(4)->pending_friend_requests();
+});
+
+
+Route::get('/ids', function () {
+    return \App\User::find(1)->friends_ids();
+});
+
+Route::get('/is', function () {
+    return \App\User::find(1)->is_friends_with(2);
+});
+
+Route::get('/ch', function () {
+    return \App\User::find(1)->has_pending_friend_request_sent_to(3);
+});
+
+// -------------------------------------------------------------------

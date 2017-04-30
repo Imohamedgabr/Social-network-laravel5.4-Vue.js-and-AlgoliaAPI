@@ -1,7 +1,7 @@
 <template>
       <li>
             <a href="/notifications">
-                  Unread notifications
+                  Notifications
                   <span class="badge">{{ all_nots_count }}</span>
             </a>
       </li>

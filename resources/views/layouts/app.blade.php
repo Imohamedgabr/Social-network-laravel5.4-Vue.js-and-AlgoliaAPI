@@ -58,6 +58,7 @@
 
                         @if(Auth::check())
                             <li><a href="{{ route('profile', ['slug' => Auth::user()->slug ]) }}">My profile</a></li>
+                            <li><a href="/friends">Friends</a></li>
                             <unread></unread>
                         @endif
 
