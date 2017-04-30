@@ -5,10 +5,16 @@
                         <div class="panel panel-default">
                         <div class="panel-body">
                               <textarea rows="3" class="form-control" v-model="content"></textarea>
-                              <br>
+                            <div class="row">
+                            <br>
                               <button class="btn btn-success pull-right" :disabled="not_working" @click="create_post()">
                                     Create a post
                               </button>
+                              <br>
+                              <a href="#"><button class="btn btn-success pull-left" @click="">
+                                    Manage Posts
+                              </button></a>
+                            </div>
                         </div>
                         </div>
                   </div>

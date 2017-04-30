@@ -26174,6 +26174,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -53196,7 +53202,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.content = $event.target.value
       }
     }
-  }), _vm._v(" "), _c('br'), _vm._v(" "), _c('button', {
+  }), _vm._v(" "), _c('div', {
+    staticClass: "row"
+  }, [_c('br'), _vm._v(" "), _c('button', {
     staticClass: "btn btn-success pull-right",
     attrs: {
       "disabled": _vm.not_working
@@ -53206,7 +53214,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.create_post()
       }
     }
-  }, [_vm._v("\n                              Create a post\n                        ")])])])])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n                              Create a post\n                        ")]), _vm._v(" "), _c('br'), _vm._v(" "), _c('a', {
+    attrs: {
+      "href": "#"
+    }
+  }, [_c('button', {
+    staticClass: "btn btn-success pull-left",
+    on: {
+      "click": function($event) {}
+    }
+  }, [_vm._v("\n                              Manage Posts\n                        ")])])])])])])]), _vm._v(" "), _c('div', {
     staticClass: "row"
   }, _vm._l((_vm.posts), function(post) {
     return _c('div', {
