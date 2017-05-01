@@ -5,64 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Social Network</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <link href="{{ asset('css/popup.css') }}" rel="stylesheet">
+        
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -77,15 +27,69 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Welcome To Our Social Network
-                </div>
+                <div class="content">
+                    <div class="title m-b-md">
+                        Welcome To Our Social Network
+                    </div>
 
-                <div class="links">
-                    Thank you for being a member!
+                    <div class="links">
+                        Thank you for being a member!
+                    </div>
+                        
+                            
+                    <br>
+                    <!-- Trigger/Open The Modal -->
+                    <button id="myBtn">Contact US</button>
+
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+
+                  <!-- Modal content -->
+                  <div class="modal-content">
+                    <span class="close">&times;</span>
+
+                    <form action="#" id="form" method="post" name="form">
+                        <img id="close" onclick ="div_hide()">
+                        <h2>Contact Us</h2>
+                        <hr>
+                        <input id="name" name="name" placeholder="Name" type="text">
+                        <input id="email" name="email" placeholder="Email" type="text">
+                        <textarea id="msg" name="message" placeholder="Message"></textarea>
+                        <a href="javascript:%20check_empty()" id="submit">Send</a>
+                    </form>
+
+                  </div>
+
                 </div>
             </div>
         </div>
+
+        <script type="text/javascript">
+          // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on the button, open the modal 
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
     </body>
 </html>
