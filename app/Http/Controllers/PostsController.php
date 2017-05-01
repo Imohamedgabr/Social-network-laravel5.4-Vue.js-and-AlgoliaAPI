@@ -22,7 +22,35 @@ class PostsController extends Controller
 
     public function manageposts()
     {
-        $posts = DB::table('posts')->where('user_id', '=', Auth::id())->paginate(5);
-    	return view('manage_posts')->with('posts',$posts);
+        $posts = DB::table('posts')->where('user_id', '=', Auth::id())->orderBy('id', 'desc')->paginate(5);
+    	return view('posts/manage_posts')->with('posts',$posts);
+    }
+
+    public function editPost($id)
+    {
+        $post = Post::find($id);
+        return view('posts.edit_post')->with('post',$post);
+    }
+
+    public function updatePost(Request $request, $id)
+    {
+        $post = Post::find($id);
+
+        $this->validate($request, array(
+                    'content'  => 'required'
+                ));
+        $post->content = $request->input('content');
+
+        $post->save();
+
+        return redirect('/home');
+    }
+
+    public function deletePost($id)
+    {
+        $post = Post::find($id);
+        $post->delete();
+
+        return redirect('/home');
     }
 }

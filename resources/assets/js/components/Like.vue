@@ -1,7 +1,9 @@
 <template>
       <div>
           <div class="row">
+
             <hr>
+              <b>people who likes this post </b>
             <ul v-for="like in post.likes">
             
                   <li> 

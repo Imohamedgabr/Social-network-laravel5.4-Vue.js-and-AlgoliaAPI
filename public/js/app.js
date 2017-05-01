@@ -26021,6 +26021,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
       mounted: function mounted() {},
@@ -53272,7 +53274,7 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('div', {
     staticClass: "row"
-  }, [_c('hr'), _vm._v(" "), _vm._l((_vm.post.likes), function(like) {
+  }, [_c('hr'), _vm._v(" "), _c('b', [_vm._v("people who likes this post ")]), _vm._v(" "), _vm._l((_vm.post.likes), function(like) {
     return _c('ul', [_c('li', [_c('img', {
       staticClass: "avatar-like",
       attrs: {

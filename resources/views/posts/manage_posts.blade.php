@@ -18,10 +18,16 @@
 	  <tbody>
 		@foreach($posts as $post)
 	    <tr>     
-	      <td>{{substr(strip_tags($post->content), 0 ,95)}} {{strlen(strip_tags($post->content)) > 95?"..." :"" }} </td>
+	      <td>{{substr(strip_tags($post->content), 0 ,90)}} {{strlen(strip_tags($post->content)) > 90?"..." :"" }} </td>
 	      <td>
-	      	<a href=""><span class="glyphicon glyphicon-edit"></span></a> &nbsp;
-	      	<a href=""><span class="glyphicon glyphicon-remove"></span></a>    
+	      	<a href="{{ route('edit.post',['id'=>$post->id]) }}"><span class="glyphicon glyphicon-edit"></span></a> &nbsp;
+
+	      	{{-- <a href="{{ route('post.delete',['id'=>$post->id]) }}"><span class="glyphicon glyphicon-remove"></span></a>   --}} 
+
+	      	{{ Form::open(['method' => 'DELETE', 'route' => ['post.delete', $post->id]]) }}
+			    {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+			{{ Form::close() }} 
+			<br>
 	      </td>
 	    </tr>
 	    @endforeach

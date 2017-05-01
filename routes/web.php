@@ -107,6 +107,21 @@ Route::group(['middleware' => 'auth'], function(){
         'uses' => 'PostsController@manageposts'
     ]);
 
+    Route::get('/editPost/{id}', [
+        'uses' => 'PostsController@editPost',
+        'as' => 'edit.post'
+    ]);
+
+    Route::PUT('/updatePost/{id}', [
+        'uses' => 'PostsController@updatePost',
+        'as' => 'posts.update'
+    ]);
+
+    Route::DELETE('/deletePost/{id}', [
+        'uses' => 'PostsController@deletePost',
+        'as' => 'post.delete'
+    ]);
+
 });
 
 
