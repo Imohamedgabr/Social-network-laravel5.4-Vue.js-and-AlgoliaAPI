@@ -98,6 +98,11 @@ Route::group(['middleware' => 'auth'], function(){
         'uses' => 'UsersController@getUser'
     ]);
 
+    Route::get('/seach', [
+        'uses' => 'UsersController@searchUsers',
+        'as'=>'search'
+    ]);
+
     Route::get('/friends', function () {
     $friends = \App\User::find(Auth::id())->friends();
     return view('friends')->with('friends',$friends);
@@ -151,3 +156,6 @@ Route::get('/ch', function () {
 });
 
 // -------------------------------------------------------------------
+
+
+Route::get('users/autocomplete',['uses'=>'UsersController@autocomplete','as'=>'users.autocomplete']);

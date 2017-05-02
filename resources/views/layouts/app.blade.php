@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('js/jquery-autocomplete/jquery-ui.min.css') }}" rel="stylesheet">
+    
     <!-- Latest compiled and minified CSS -->
     {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> --}}
 
@@ -64,6 +66,17 @@
 
                         @if(Auth::check())
                         <li><a href="/members">Members</a></li>
+
+                        {!! Form::open(['route'=>'search','method'=>'GET','class'=>'navbar-form navbar-right','role'=>'search']) !!}
+            
+                        <li class="col-xs-3">
+                        {!! Form::text('term',Request::get('term'),['class'=>'form-control','placeholder'=>'Search ...','id'=>'term']) !!}
+                            <li>
+                                <button class="btn btn-default" type="submit"></button>
+                            </li>
+                        </li>
+                      {!! Form::close() !!}
+
                         @endif
                     </ul>
 
@@ -130,6 +143,19 @@
         @if(Session::has('success'))
             $.notify( "{{ Session::get('success') }}", "success");
         @endif
+    </script>
+    <script src="{{ asset('js/jquery-autocomplete/jquery-ui.min.js') }}"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        $("#term").autocomplete({
+          source: "{{ route('users.autocomplete') }}",
+          minLength: 3,
+          select: function(event,ui){
+            $("#term").val(ui.item.value);
+          }
+        });
+      });
     </script>
 </body>
 </html>
