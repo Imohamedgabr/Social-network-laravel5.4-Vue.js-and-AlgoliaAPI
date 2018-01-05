@@ -24,9 +24,9 @@ class UsersController extends Controller
             ->orderBy("id","desc")
             ->paginate(5);
     	
-    	if ( !$users ) {
-    		$users = NULL;
-		}
+  //   	if ( !$users ) {
+  //   		$users = NULL;
+		// }
 
     	return view('members')->with('users', $users);
     }   

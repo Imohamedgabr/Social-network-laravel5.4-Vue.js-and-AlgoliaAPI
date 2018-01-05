@@ -3,6 +3,10 @@
 @section('content')
 
 <div class="col-md-8 col-md-offset-2">
+   
+   
+   
+@if(count($users) > 0)
 	<div class="panel panel-default">
             <table class="table">
             @foreach($users as $user )
@@ -30,7 +34,12 @@
             @endforeach  
             </table>            
           </div>
-          <h4>Make sure you provide a correct user name if no members are found</h4>
+
+  @else
+
+  <h3>No Users found Please make sure name is correct</h3>
+          
+  @endif
     </div>
   </div>
 </div>
